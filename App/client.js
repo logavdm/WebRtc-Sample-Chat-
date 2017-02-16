@@ -1,15 +1,24 @@
 var msgtextbox=document.getElementById('msg');
 var chatbox=document.getElementById('chatlist');
+var username="demo";
 
 
 
-var conn = new WebSocket('ws://localhost:9090');
+
+    	var conn = new WebSocket('ws://localhost:9090');
+    	
+	
+	
+
+
+
 
 
   
 conn.onopen = function () { 
    console.log("Connected to the signaling server");
-   conn.send("logavdm") ;
+   var person = prompt("Please enter your name", "Harry Potter");
+   conn.send(person) ;
 }; 
 
 conn.onmessage = function (msg) { 
